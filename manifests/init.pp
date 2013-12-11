@@ -32,9 +32,14 @@ class nodejs () {
     ensure => installed
   }
 
+  package {'python-software-properties':
+    ensure => installed
+  }
+
+
   package {'git-core':
     ensure => installed,
-    require => [Package['apache2-utils'],Package['libssl-dev'],Package['curl'],Package['g++']]
+    require => [Package['apache2-utils'],Package['libssl-dev'],Package['curl'],Package['g++'],Package['python-software-properties']]
   } ->
 
   file { '/usr/local/bin/install_node.sh':
