@@ -11,10 +11,12 @@
 # Requires:
 #
 # Sample Usage:
-#  class{ 'nodejs': }
+#  class{ 'nodejs': 
+#    release => 'ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17'
+#  }
 #   
 #
-class nodejs () {
+class nodejs ($build = 'ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17') {
 
   package {'g++':
     ensure => installed
@@ -37,20 +39,17 @@ class nodejs () {
   }
 
 
-  package {'git-core':
-    ensure => installed,
-    require => [Package['apache2-utils'],Package['libssl-dev'],Package['curl'],Package['g++'],Package['python-software-properties']]
-  } ->
 
-  file { '/usr/local/bin/install_node.sh':
+  file { '/var/tmp/build/node':
     ensure => present,
+    require => Package['apache2-utils', 'libssl-dev', 'curl', 'g++', 'python-software-properties'],
     mode   => 0711,
-    source => ['puppet:///modules/nodejs/install_node.sh']
+    source => ["puppet:///modules/nodejs/${build}"]
   } ->
 
 
-  exec { 'install_node.sh':
-    cwd     => "/var/tmp",
+  exec { 'make install':
+    cwd     => '/var/tmp/build/node',
     path => '/usr/local/bin:/usr/bin:/usr/sbin:/bin',
     timeout => 0
   }
