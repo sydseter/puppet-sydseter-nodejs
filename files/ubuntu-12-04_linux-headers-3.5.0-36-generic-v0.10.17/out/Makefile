@@ -11,7 +11,7 @@ srcdir := ..
 abs_srcdir := $(abspath $(srcdir))
 
 # The name of the builddir.
-builddir_name ?= /vagrant/puppet/modules/nodejs/files/node/out
+builddir_name ?= /vagrant/puppet/modules/nodejs/files/ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17/out
 
 # The V=1 flag on command line makes us verbosely print command lines.
 ifdef V
@@ -488,7 +488,7 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
 endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
-cmd_regen_makefile = ./tools/gyp_node -fmake --ignore-environment "--toplevel-dir=." -I/vagrant/puppet/modules/nodejs/files/node/common.gypi -I/vagrant/puppet/modules/nodejs/files/node/config.gypi "--depth=." "-Goutput_dir=/vagrant/puppet/modules/nodejs/files/node/out" "--generator-output=/vagrant/puppet/modules/nodejs/files/node/out" "-Dcomponent=static_library" "-Dlibrary=static_library" node.gyp
+cmd_regen_makefile = ./tools/gyp_node -fmake --ignore-environment "--toplevel-dir=." -I/vagrant/puppet/modules/nodejs/files/ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17/common.gypi -I/vagrant/puppet/modules/nodejs/files/ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17/config.gypi "--depth=." "-Goutput_dir=/vagrant/puppet/modules/nodejs/files/ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17/out" "--generator-output=/vagrant/puppet/modules/nodejs/files/ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17/out" "-Dcomponent=static_library" "-Dlibrary=static_library" node.gyp
 Makefile: $(srcdir)/deps/openssl/openssl.gyp $(srcdir)/deps/cares/cares.gyp $(srcdir)/common.gypi $(srcdir)/deps/uv/uv.gyp $(srcdir)/deps/http_parser/http_parser.gyp $(srcdir)/deps/zlib/zlib.gyp $(srcdir)/deps/v8/build/common.gypi $(srcdir)/deps/v8/tools/gyp/v8.gyp $(srcdir)/node.gyp $(srcdir)/config.gypi
 	$(call do_cmd,regen_makefile)
 

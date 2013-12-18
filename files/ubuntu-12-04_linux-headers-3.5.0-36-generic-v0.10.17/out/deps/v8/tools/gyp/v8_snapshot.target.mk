@@ -3,17 +3,17 @@
 TOOLSET := target
 TARGET := v8_snapshot
 ### Rules for action "run_mksnapshot":
-quiet_cmd__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot = ACTION _vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot $@
-cmd__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot = LD_LIBRARY_PATH=$(builddir)/lib.host:$(builddir)/lib.target:$$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd $(srcdir)/deps/v8/tools/gyp; mkdir -p $(obj).$(TOOLSET)/v8_snapshot/geni; "$(builddir)/mksnapshot" --log-snapshot-positions --logfile "$(obj).$(TOOLSET)/v8_snapshot/geni/snapshot.log" "$(obj).$(TOOLSET)/v8_snapshot/geni/snapshot.cc"
+quiet_cmd__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot = ACTION _vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot $@
+cmd__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot = LD_LIBRARY_PATH=$(builddir)/lib.host:$(builddir)/lib.target:$$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd $(srcdir)/deps/v8/tools/gyp; mkdir -p $(obj).$(TOOLSET)/v8_snapshot/geni; "$(builddir)/mksnapshot" --log-snapshot-positions --logfile "$(obj).$(TOOLSET)/v8_snapshot/geni/snapshot.log" "$(obj).$(TOOLSET)/v8_snapshot/geni/snapshot.cc"
 
 $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc: obj := $(abs_obj)
 $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc: builddir := $(abs_builddir)
 $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc: TOOLSET := $(TOOLSET)
 $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc: $(builddir)/mksnapshot FORCE_DO_CMD
-	$(call do_cmd,_vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot)
+	$(call do_cmd,_vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot)
 
 all_deps += $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc
-action__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs := $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc
+action__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs := $(obj).$(TOOLSET)/$(TARGET)/geni/snapshot.cc
 
 
 DEFS_Debug := \
@@ -95,7 +95,7 @@ all_deps += $(OBJS)
 $(OBJS): | $(builddir)/mksnapshot $(obj).target/deps/v8/tools/gyp/js2c.stamp
 
 # Make sure our actions/rules run before any of us.
-$(OBJS): | $(action__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs)
+$(OBJS): | $(action__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs)
 
 # CFLAGS et al overrides must be target-local.
 # See "Target-specific Variable Values" in the GNU Make manual.
@@ -119,10 +119,10 @@ $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cc FORCE_DO_CMD
 # End of this set of suffix rules
 ### Rules for final target.
 # Build our special outputs first.
-$(obj).target/deps/v8/tools/gyp/libv8_snapshot.a: | $(action__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs)
+$(obj).target/deps/v8/tools/gyp/libv8_snapshot.a: | $(action__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs)
 
 # Preserve order dependency of special output on deps.
-$(action__vagrant_puppet_modules_nodejs_files_node_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs): | $(builddir)/mksnapshot $(obj).target/deps/v8/tools/gyp/js2c.stamp
+$(action__vagrant_puppet_modules_nodejs_files_ubuntu_12_04_linux_headers_3_5_0_36_generic_v0_10_17_deps_v8_tools_gyp_v8_gyp_v8_snapshot_target_run_mksnapshot_outputs): | $(builddir)/mksnapshot $(obj).target/deps/v8/tools/gyp/js2c.stamp
 
 LDFLAGS_Debug := \
 	-pthread \

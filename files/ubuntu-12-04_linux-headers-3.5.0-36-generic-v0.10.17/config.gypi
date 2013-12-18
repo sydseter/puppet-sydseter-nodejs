@@ -8,7 +8,7 @@
                  'gcc_version': 46,
                  'host_arch': 'x64',
                  'node_install_npm': 'true',
-                 'node_prefix': '',
+                 'node_prefix': '/home/vagrant/local',
                  'node_shared_cares': 'false',
                  'node_shared_http_parser': 'false',
                  'node_shared_libuv': 'false',
