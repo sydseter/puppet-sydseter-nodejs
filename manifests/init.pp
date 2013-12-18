@@ -45,12 +45,14 @@ class nodejs ($build = 'ubuntu-12-04_linux-headers-3.5.0-36-generic-v0.10.17') {
     require => Package['apache2-utils', 'libssl-dev', 'curl', 'g++', 'python-software-properties'],
     mode   => 0711,
     source => ["puppet:///modules/nodejs/${build}"]
-  } ->
+  }
 
 
   exec { 'make install':
     cwd     => '/var/tmp/build/node',
     path => '/usr/local/bin:/usr/bin:/usr/sbin:/bin',
+    subscribe => File['/var/tmp/build/node'],
+    refreshonly => true,
     timeout => 0
   }
 
